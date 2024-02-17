@@ -58,6 +58,7 @@ class PlayList {
 
     /** Removes the last track from this list. If the list is empty, does nothing. */
      public void removeLast() {
+         // #feedback - note that you don't need to create a new array (and allocate memory for it). In this case you can just reduce the size.
         Track[] newTracksList = new Track[maxSize];
         
         if (size != 0) {
@@ -100,6 +101,7 @@ class PlayList {
      *  is full, does nothing and returns false. Otherwise, inserts the track and
      *  returns true. */
     public boolean add(int i, Track track) {
+        // #feedback - also here, you can do the changes in-place without creating additional array (your solution is not wrong, but less efficient if maxSize is large).
         Track[] newTracksList = new Track[maxSize]; 
         if (size == 0) {
             add(track);
@@ -140,6 +142,7 @@ class PlayList {
      *  If such a track is not found, or the list is empty, or the given index
      *  is negative or too big for this list, does nothing. */
     public void remove(String title) {
+        // #feedback - you can get the index by using indexOf method.
         for (int i = 0; i < size; i++) {
             if (tracks[i].getTitle() == title) {
                 remove(i);
